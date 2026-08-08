@@ -105,16 +105,17 @@ body {
   .nav-inner { flex-wrap: wrap; }
 }
 
-/* ---------- Hero Section (Text lệch trái, Ảnh đậm dần sang phải) ---------- */
-.hero {
-  position: relative;
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Căn toàn bộ khung về bên trái */
-  padding: 140px 8% 80px;
-  text-align: left; /* Text căn lề trái */
-  color: #FFFFFF;
+/* ---------- Hero Section (Lớp phủ nhạt dần sang phải để lộ rõ Mobile) ---------- */
+.hero.hero-overlay {
+  background: 
+    linear-gradient(
+      90deg, 
+      rgba(20, 28, 22, 0.9) 0%,    /* Tối đậm ở lề trái để đọc rõ chữ */
+      rgba(20, 28, 22, 0.65) 45%,  /* Giảm dần độ tối ở giữa */
+      rgba(20, 28, 22, 0.1) 75%,   /* Trong suốt gần như hoàn toàn */
+      transparent 100%             /* Trong suốt hẳn ở lề phải để lộ Mobile */
+    ),
+    url('assets/hero-mother-baby.png') center/cover no-repeat;
 }
 
 /* Gradient chuyển màu: Bên trái vừa đủ tối để đọc chữ, BÊN PHẢI ĐẬM DẦN */
