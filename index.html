@@ -15,51 +15,69 @@
     <a href="#top" class="brand"><img src="assets/logo.png" alt="MomLove logo" class="brand-logo"> MomLove</a>
     <button id="navToggle" class="nav-toggle" aria-label="Mở menu">☰</button>
     <ul id="navLinks">
-      <li><a href="#market">01 Market Context</a></li>
-      <li><a href="#interview">02 Interview</a></li>
-      <li><a href="#persona">03 Persona</a></li>
-      <li><a href="#asis">04 As-Is</a></li>
-      <li><a href="#problem">05 Problem</a></li>
-      <li><a href="#fit">06 Fit</a></li>
-      <li><a href="#storymap">07 Story Map</a></li>
-      <li><a href="#tobe">08 To-Be</a></li>
-      <li><a href="#mockup">09 Mockup</a></li>
-      <li><a href="#erd">10 ERD</a></li>
+      <li><a href="#market"> Market Context</a></li>
+      <li><a href="#interview"> Interview</a></li>
+      <li><a href="#persona"> Persona</a></li>
+      <li><a href="#asis">As-Is</a></li>
+      <li><a href="#problem"> Problem</a></li>
+      <li><a href="#fit">Fit</a></li>
+      <li><a href="#storymap">Use Case</a></li>
+      <li><a href="#tobe"> To-Be</a></li>
+      <li><a href="#mockup"> Mockup</a></li>
+      <li><a href="#erd"> ERD</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ============ HERO SECTION ============ -->
+<!-- HERO SECTION - TEXT LỆCH TRÁI, ẢNH ĐẬM DẦN SANG PHẢI -->
 <header id="top" class="hero hero-overlay">
   <div class="hero-container">
-    
-    <!-- Badge dạng viên thuốc (Pill Badge) -->
     <p class="eyebrow-pill">
       <span class="badge-icon">🌿</span> MOMLOVE — HÀNH TRÌNH LÀM MẸ AN NHIÊN
     </p>
 
-    <!-- Tiêu đề thương hiệu lớn -->
     <h1 class="hero-brand-title">MomLove</h1>
 
-    <!-- Tiêu đề phụ (Serif) -->
     <h2 class="hero-heading">
       Hiểu hành trình nuôi con để mỗi khoảnh khắc trở nên ý nghĩa hơn.
     </h2>
 
-    <!-- Đoạn văn mô tả ngắn -->
     <p class="lede">
       MomLove không chỉ tổng hợp kinh nghiệm thật từ chính các bà mẹ, mà còn kết nối cộng đồng và tách bạch rõ ràng giữa "kinh nghiệm cá nhân" và "tư vấn chuyên môn" để mẹ luôn an tâm lựa chọn.
     </p>
 
-    <!-- Nhóm nút bấm bo tròn (Pill Buttons) -->
     <div class="hero-cta">
-      <a href="#market" class="btn btn-pill-primary">Khám phá giải pháp →</a>
-      <a href="#erd" class="btn btn-pill-secondary">Xem Prototype</a>
+      <a href="#market" class="btn-pill-primary">Khám phá giải pháp →</a>
+      <a href="#erd" class="btn-pill-secondary">Xem Prototype</a>
     </div>
-
   </div>
 </header>
+
 <main>
+  <!-- Các nội dung section khác bên dưới... -->
+</main>
+
+<!-- SCRIPT XỬ LÝ ẨN/HIỆN MENU KHU CUỘN TRANG -->
+<script>
+  let lastScrollTop = 0;
+  const nav = document.getElementById('nav');
+
+  window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Cuộn xuống hơn 80px -> Ẩn Menu
+    if (scrollTop > lastScrollTop && scrollTop > 80) {
+      nav.classList.add('nav-hidden');
+    } else {
+      // Cuộn ngược lên -> Hiện Menu
+      nav.classList.remove('nav-hidden');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
+
+</body>
+</html>
 <!-- ============ 01 MARKET CONTEXT ============ -->
 <section id="market" class="section">
   <p class="num">01</p>
