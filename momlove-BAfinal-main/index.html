@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MomLove - Hành trình làm mẹ an nhiên</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><img src="assets/logo.png" alt="MomLove logo" class="brand-logo"> MomLove</a>
+    <button id="navToggle" class="nav-toggle" aria-label="Mở menu" aria-controls="navLinks" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+    <ul id="navLinks">
+      <li><a href="#market"> Market Context</a></li>
+      <li><a href="#interview"> Interview</a></li>
+      <li><a href="#persona"> Persona</a></li>
+      <li><a href="#asis">As-Is</a></li>
+      <li><a href="#problem"> Problem</a></li>
+      <li><a href="#fit">Fit</a></li>
+      <li><a href="#storymap">Use Case</a></li>
+      <li><a href="#tobe"> To-Be</a></li>
+      <li><a href="#mockup"> Mockup</a></li>
+      <li><a href="#erd"> ERD</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="top" class="hero hero-overlay">
+  <div class="hero-container">
+    <p class="eyebrow-pill">
+      <span class="badge-icon">🌿</span> MOMLOVE — HÀNH TRÌNH LÀM MẸ AN NHIÊN
+    </p>
+
+    <h1 class="hero-brand-title">MomLove</h1>
+
+    <h2 class="hero-heading">
+      Hiểu hành trình nuôi con để mỗi khoảnh khắc trở nên ý nghĩa hơn.
+    </h2>
+
+    <p class="lede">
+      MomLove không chỉ tổng hợp kinh nghiệm thật từ chính các bà mẹ, mà còn kết nối cộng đồng và tách bạch rõ ràng giữa "kinh nghiệm cá nhân" và "tư vấn chuyên môn" để mẹ luôn an tâm lựa chọn.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#market" class="btn-pill-primary">Khám phá giải pháp →</a>
+      <a href="#erd" class="btn-pill-secondary">Xem ERD <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ 01 MARKET CONTEXT ============ -->
+<section id="market" class="section">
+  <p class="num">01</p>
+  <h2>Market Context</h2>
+
+  <h3>Quy mô thị trường</h3>
+  <p>Ngành hàng Mẹ &amp; Bé trên TMĐT tăng trưởng mạnh, nhưng đằng sau đó là một hành vi quan trọng hơn con số: phụ huynh trẻ ngày càng phụ thuộc vào nội dung/đánh giá trước khi quyết định mua.</p>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <p class="chart-label">Quy mô TMĐT B2C Việt Nam (tỷ USD)</p>
+      <canvas id="chartTmdt"></canvas>
+      <p class="src">Nguồn: VCCI, Bộ Công Thương, SHS Research</p>
+    </div>
+    <div class="chart-card">
+      <p class="chart-label">Ảnh hưởng của review &amp; nội dung xã hội đến quyết định mua</p>
+      <canvas id="chartReview"></canvas>
+      <p class="src">Nguồn: GoodGood — Báo cáo thị trường Mẹ &amp; Bé, đầu 2026</p>
+    </div>
+  </div>
+
+  <div class="chart-card full">
+    <p class="chart-label">Các hội nhóm Facebook mẹ &amp; bé — hoạt động độc lập, không liên kết (nghìn thành viên)</p>
+    <canvas id="chartFb"></canvas>
+    <p class="src">Nguồn: tổng hợp Mytour.vn, GHN.vn, Sapo.vn, Toplist.vn</p>
+  </div>
+  <!-- GHI CHÚ: muốn đổi số liệu biểu đồ, sửa mảng data trong script.js (phần "Chart.js") -->
+
+  <h3>Người bị ảnh hưởng</h3>
+  <p>Phụ huynh trẻ (Millennials &amp; Gen Z), đặc biệt mẹ mang thai lần đầu/có con đầu lòng — nhóm phụ thuộc nhiều nhất vào thông tin cộng đồng nhưng cũng dễ tổn thương nhất trước thông tin sai lệch. Một khảo sát ghi nhận cứ 10 bài chia sẻ cách dùng thuốc trên mạng thì có tới 8 bài sai hoặc nửa đúng nửa sai.</p>
+
+  <h3>Giải pháp hiện tại</h3>
+  <table class="cf-table">
+    <thead><tr><th>Giải pháp</th><th>Điểm mạnh</th><th>Điểm còn thiếu</th></tr></thead>
+    <tbody>
+      <tr><td>Hội nhóm Facebook</td><td>Đông thành viên, phản hồi nhanh</td><td>Phân tán qua nhiều nhóm độc lập, không kiểm chứng</td></tr>
+      <tr><td>Webtretho / Bé Yêu</td><td>Uy tín, có bác sĩ tham gia</td><td>Không tách bạch kinh nghiệm cá nhân vs. tư vấn chuyên môn</td></tr>
+      <tr><td>Sàn TMĐT (review sản phẩm)</td><td>Tiện lợi, gắn với hành vi mua</td><td>30–40% đánh giá trực tuyến có thể là giả</td></tr>
+    </tbody>
+  </table>
+
+  <div class="gap-box">
+    <p class="chart-label">Khoảng trống (Gap)</p>
+    <p>Chưa có nền tảng nào tổ chức lại nội dung/kinh nghiệm theo chủ đề, đồng thời phân biệt rõ độ tin cậy — trong khi nhu cầu này tăng nhanh cùng thế hệ phụ huynh có thói quen "nghiên cứu kỹ trước khi quyết định."</p>
+  </div>
+</section>
+
+<!-- ============ 02 USER INTERVIEW ============ -->
+<section id="interview" class="section">
+  <p class="num">02 INTERVIEW</p>
+  <h2>User Interview</h2>
+  <p class="section-lede">3 buổi phỏng vấn với phụ huynh ở các giai đoạn khác nhau — từ mang thai lần đầu đến đã có 2 con.</p>
+
+  <div class="interview-grid">
+    
+    <!-- CARD 1 -->
+    <div class="interview-card reveal">
+      <img src="assets/nv1.png" alt="Nhân viên văn phòng" class="avatar-img">
+      <h4>Nhân viên văn phòng</h4>
+      <p class="iv-tag">Mẹ 2 con · 6 tuổi & 6 tháng</p>
+      
+      <p class="iv-h">THÓI QUEN</p>
+      <p>Hỏi kinh nghiệm người quen; tham gia hội pass đồ bỉm sữa và nhóm chia sẻ kinh nghiệm trên Facebook.</p>
+      
+      <p class="iv-h">NỖI ĐAU</p>
+      <ul>
+        <li>Làm theo lời khuyên ăn dặm tự chỉ huy (BLW) trên mạng, con không hợp tác, nôn ói.</li>
+        <li>Mua vội bình sữa kém chất lượng ở tạp hóa khi con vỡ bình lúc đói.</li>
+      </ul>
+
+      <p class="iv-h">KỲ VỌNG</p>
+      <p>Thông tin đáng tin cậy — sẽ ngừng dùng ngay nếu app đề xuất sai sự thật.</p>
+
+      <p class="iv-quote">"Chưa tin luôn phải hỏi thêm người khác trước khi quyết định."</p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="interview-card reveal">
+      <img src="assets/nv2.png" alt="Mẹ bầu 8 tháng" class="avatar-img">
+      <h4>Mẹ bầu 8 tháng</h4>
+      <p class="iv-tag">Con đầu lòng</p>
+      
+      <p class="iv-h">THÓI QUEN</p>
+      <p>Nghiên cứu qua sách về nuôi dạy con; chưa tham gia hội nhóm nào.</p>
+      
+      <p class="iv-h">NỖI ĐAU</p>
+      <ul>
+        <li>Các nguồn (sách, hội nhóm) liệt kê danh sách đồ sơ sinh khác nhau — không biết tin ai.</li>
+        <li>Mua nhầm thiết bị cao cấp theo lời khuyên trong sách, sau mới biết chưa cần thiết.</li>
+      </ul>
+
+      <p class="iv-h">KỲ VỌNG</p>
+      <p>Độ uy tín và trải nghiệm thật — sẵn sàng trả phí nếu chất lượng được chứng minh trước.</p>
+
+      <p class="iv-quote">"Người sử dụng phải thật đã có trải nghiệm, sản phẩm đề xuất đạt chất lượng, cửa hàng chính hãng uy tín."</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="interview-card reveal">
+      <img src="assets/nv3.png" alt="Chị Hà" class="avatar-img">
+      <h4>Chị Hà</h4>
+      <p class="iv-tag">Lần đầu làm mẹ · con 11 tháng</p>
+      
+      <p class="iv-h">THÓI QUEN</p>
+      <p>Tìm thông tin từ người quen và hội nhóm Facebook; tham khảo nhiều nguồn chứ không chỉ đọc review.</p>
+      
+      <p class="iv-h">NỖI ĐAU</p>
+      <ul>
+        <li>Con dị ứng phải đưa đi viện; thông tin sức khỏe cần độ chính xác cao.</li>
+        <li>Dùng vitamin theo review nhưng không hiệu quả — tốn tiền, ảnh hưởng tâm lý và quan hệ gia đình, ngại chia sẻ lại.</li>
+      </ul>
+
+      <p class="iv-h">KỲ VỌNG</p>
+      <p>Chỉ những người đã mua/dùng thật mới được đánh giá sản phẩm.</p>
+
+      <p class="iv-quote">"Chỉ những user đã mua thực mới được đánh giá."</p>
+    </div>
+
+  </div>
+</section>
+<!-- ============ 03 USER PERSONA ============ -->
+<section id="persona" class="section">
+  <p class="num">03</p>
+  <h2>User Persona</h2>
+
+  <div class="persona-card">
+    <img src="assets/ngocanh.jpg" alt="Ngọc Anh" class="avatar-ph lg persona-avatar">
+    <div class="persona-body">
+      <h3>Ngọc Anh</h3>
+      <p class="iv-tag">Lần đầu làm mẹ · 29 tuổi · Nhân viên văn phòng</p>
+      <div class="persona-grid">
+        <div>
+          <p class="iv-h">🎯 Goals</p>
+          <ul>
+            <li>Tìm thông tin đáng tin cậy về chăm sóc con mà không cần lục tìm qua nhiều hội nhóm.</li>
+            <li>Phân biệt được đâu là kinh nghiệm cá nhân, đâu là điều cần hỏi bác sĩ.</li>
+            <li>Mua/pass đồ cho con mà không sợ bị lừa.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="iv-h">😤 Frustrations</p>
+          <ul>
+            <li>Thông tin tràn lan, không biết tin ai, phải tự kiểm tra chéo nhiều nguồn.</li>
+            <li>Từng làm theo lời khuyên trên mạng nhưng không hiệu quả, tốn tiền và thời gian.</li>
+            <li>Ngại chia sẻ trải nghiệm không tốt vì sợ bị đánh giá.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="iv-h">📱 Behaviors</p>
+          <ul>
+            <li>Tham gia 1–2 hội nhóm Facebook mẹ &amp; bé.</li>
+            <li>Trước khi quyết định, hỏi thêm người quen hoặc đối chiếu nhiều nguồn.</li>
+            <li>Nghiên cứu kỹ trước khi hành động, đặc biệt ở mảng sức khỏe.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="iv-h">🧭 Context</p>
+          <ul>
+            <li>Vừa đi làm vừa chăm con (hoặc sắp sinh), thời gian hạn chế.</li>
+            <li>Có người thân hỗ trợ một phần nhưng vẫn tự tìm hiểu là chính.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="iv-quote">"Chưa tin luôn phải hỏi thêm người khác trước khi quyết định."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 BPMN AS-IS ============ -->
+<section id="asis" class="section alt placeholder">
+  <p class="num">04</p>
+  <h2>BPMN As-Is</h2>
+  <img src="assets/as-is.png" alt="BPMN As-Is: quy trình tìm và sử dụng thông tin nuôi con" class="bpmn-img">
+  <!--
+    BPMN EMBED — 2 cách:
+    (A) ĐƠN GIẢN (khuyên dùng cho người mới): chụp ảnh sơ đồ, lưu vào assets/,
+        rồi thay khối <div class="todo-box"> ở trên bằng:
+        <img src="assets/as-is.png" alt="BPMN As-Is" class="bpmn-img">
+
+    (B) GIỐNG WEB MẪU (tương tác, kéo/cuộn/zoom được): dùng thư viện bpmn-js.
+        1. Xuất file .bpmn từ bpmn.io, lưu vào assets/as-is.bpmn
+        2. Thêm vào script.js:
+           import BpmnViewer from 'https://esm.sh/bpmn-js@17/dist/bpmn-viewer.production.min.js';
+           const viewer = new BpmnViewer({ container: '#bpmnAsIs' });
+           const xml = await (await fetch('assets/as-is.bpmn')).text();
+           await viewer.importXML(xml);
+           viewer.get('canvas').zoom('fit-viewport');
+        3. Thêm <div id="bpmnAsIs" class="bpmn-frame"></div> vào HTML
+  -->
+</section>
+
+<!-- ============ 05 PROBLEM STATEMENT ============ -->
+<section id="problem" class="section">
+  <p class="num">05</p>
+  <h2>Problem Statement</h2>
+  <ul class="ps-list">
+    <li>Phụ huynh trẻ, đặc biệt người <strong>lần đầu làm mẹ</strong>, phải tự tổng hợp thông tin chăm sóc con từ <strong>hàng chục hội nhóm Facebook độc lập</strong>, không có nơi tổng hợp và phân loại rõ ràng.</li>
+    <li>Review và lời khuyên trên mạng — đặc biệt ở mảng sức khỏe/thuốc — thường <strong>trộn lẫn giữa kinh nghiệm cá nhân và thông tin cần chuyên gia xác nhận</strong>, dẫn đến nhiều trường hợp áp dụng sai gây tốn thời gian, tiền bạc và ảnh hưởng tâm lý.</li>
+    <li>Giao dịch mua bán/pass đồ cho con trong các hội nhóm <strong>thiếu cơ chế xác thực</strong>, tạo điều kiện cho lừa đảo và review ảo tồn tại phổ biến.</li>
+  </ul>
+</section>
+
+<!-- ============ 06 PROBLEM–SOLUTION FIT ============ -->
+<section id="fit" class="section alt">
+  <p class="num">06</p>
+  <h2>Problem–Solution Fit</h2>
+
+  <h3>Solution Concept</h3>
+  <ul class="ps-list">
+    <li><strong>MomLove</strong> tổng hợp kinh nghiệm, review thật và cho phép pass đồ an toàn trên một nền tảng duy nhất.</li>
+    <li>Phân loại nội dung theo chủ đề (sức khỏe / đồ dùng), tách bạch kinh nghiệm cá nhân khỏi thông tin cần chuyên gia.</li>
+    <li>Xác thực người bán (giấy phép kinh doanh) và duyệt bài trước khi đăng cho pillar pass đồ.</li>
+  </ul>
+
+  <h3>Fit Matrix</h3>
+  <table class="cf-table fit-table">
+    <thead><tr><th>#</th><th>Pain Point</th><th>Giải pháp trong App</th><th>Trải nghiệm người dùng</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Thông tin phân tán qua nhiều hội nhóm độc lập</td><td>Tổng hợp &amp; phân loại nội dung theo chủ đề trên 1 nền tảng</td><td>Tìm thông tin nhanh hơn, không cần lục nhiều nhóm</td></tr>
+      <tr><td>2</td><td>Review lẫn lộn kinh nghiệm cá nhân và thông tin y khoa</td><td>Gắn nhãn phân biệt rõ loại nội dung khi hiển thị</td><td>Biết khi nào nên tham khảo thêm chuyên gia</td></tr>
+      <tr><td>3</td><td>Lừa đảo khi pass đồ cũ</td><td>Admin duyệt bài trước khi đăng công khai</td><td>An tâm hơn khi mua/bán đồ cũ</td></tr>
+      <tr><td>4</td><td>Review ảo/seeding trên sàn TMĐT</td><td>Đánh giá gắn với đơn hàng đã xác thực mua thật</td><td>Tin tưởng review hơn khi ra quyết định mua</td></tr>
+      <tr><td>5</td><td>Nội dung sai lệch tồn tại không bị xử lý</td><td>Cơ chế báo cáo + kiểm duyệt nội dung bởi Admin</td><td>Cộng đồng tự thanh lọc thông tin sai</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 07 USER STORY MAP ============ -->
+<section id="storymap" class="section placeholder">
+  <p class="num">07</p>
+  <h2>User Case</h2>
+  <img src="assets/use-case.png" alt="Use case diagram của ứng dụng MomLove" class="diagram-img">
+</section>
+
+<!-- ============ 08 BPMN TO-BE ============ -->
+<section id="tobe" class="section alt">
+  <p class="num">08</p>
+  <h2>BPMN To-Be</h2>
+  <p>Quy trình Diễn đàn thể hiện các luồng đăng bài, tương tác, báo cáo nội dung sai lệch và kiểm duyệt của Admin.</p>
+
+  <div class="bpmn-list">
+    <div class="bpmn-item">
+      <p class="bpmn-caption">BPMN quy trình mẹ bỉm mua hàng trên trang web</p>
+      <img src="assets/tobe-mua-hang.png" alt="BPMN To-Be: quy trình mua hàng trên MomLove" class="bpmn-img">
+    </div>
+    <div class="bpmn-item">
+      <p class="bpmn-caption">BPMN quy trình Chia sẻ, Tương tác & Kiểm duyệt Nội dung diễn đàn </p>
+      <img src="assets/tobe-forum.png" alt="BPMN To-Be: đăng bài, tương tác và xử lý báo cáo trong diễn đàn MomLove" class="bpmn-img">
+    </div>
+    <div class="bpmn-item">
+      <p class="bpmn-caption">BPMN quy trình đăng kí tài khoản bán hàng</p>
+      <img src="assets/quytrinh.svg" alt="BPMN To-Be: quy trình đăng ký tài khoản bán hàng" class="bpmn-img">
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 UI MOCKUP ============ -->
+<section id="mockup" class="section placeholder">
+  <p class="num">09</p>
+  <h2>UI Mockup</h2>
+
+  <h3>Thiết kế giao diện MomLove</h3>
+  <p>Bản mockup mô phỏng trải nghiệm diễn đàn, chia sẻ kinh nghiệm và mua bán chính hãng.</p>
+  <div class="figma-wrap">
+    <iframe src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FyGzyJPxsacmYFXpIscdvyy%2FSans-titre%3Fnode-id%3D0-1%26t%3Dip03ufsegfMxyhlp-1" title="UI mockup MomLove trên Figma" allowfullscreen></iframe>
+  </div>
+  <a href="https://www.figma.com/design/yGzyJPxsacmYFXpIscdvyy/Sans-titre?node-id=0-1&amp;t=ip03ufsegfMxyhlp-1" target="_blank" rel="noopener" class="proto-link">↗ Mở mockup trên Figma</a>
+</section>
+
+<!-- ============ 10 ERD ============ -->
+<section id="erd" class="section alt">
+  <p class="num">10</p>
+  <h2>ERD</h2>
+  <p>16 entity, đầy đủ khóa chính/khóa ngoại và cardinality — bao phủ 2 pillar Mua bán chính hãng và Diễn đàn.</p>
+
+  <img src="assets/erd.png" alt="ERD của MomLove với các thực thể và quan hệ dữ liệu" class="diagram-img erd-img">
+
+  <h3>Bảng quan hệ giữa các bảng</h3>
+  <table class="cf-table erd-table">
+    <thead><tr><th>Bảng cha (1) → Bảng con (N)</th><th>Quan hệ</th><th>Ý nghĩa</th></tr></thead>
+    <tbody>
+      <tr><td>USER → VENDOR</td><td>1–1</td><td>Một user có tối đa 1 gian hàng</td></tr>
+      <tr><td>VENDOR → PRODUCT</td><td>1–N</td><td>Một gian hàng đăng nhiều sản phẩm</td></tr>
+      <tr><td>CATEGORY → PRODUCT / FORUM_POST</td><td>1–N</td><td>Một danh mục phân loại nhiều sản phẩm/bài viết</td></tr>
+      <tr><td>USER → ORDERS → ORDER_ITEM ← PRODUCT</td><td>M–N (qua ORDER_ITEM)</td><td>Một đơn hàng gồm nhiều sản phẩm, một sản phẩm nằm trong nhiều đơn</td></tr>
+      <tr><td>ORDERS → PAYMENT</td><td>1–1</td><td>Một đơn hàng có một lượt thanh toán</td></tr>
+      <tr><td>PRODUCT → PRODUCT_REVIEW ← ORDERS</td><td>1–N</td><td>Review gắn với đơn hàng để xác thực đã mua thật</td></tr>
+      <tr><td>ORDER_ITEM → RETURN_REQUEST</td><td>1–N</td><td>Một sản phẩm trong đơn có thể bị khiếu nại</td></tr>
+      <tr><td>FORUM_POST → COMMENT</td><td>1–N</td><td>Một bài viết có nhiều bình luận</td></tr>
+      <tr><td>COMMENT → HELPFUL_VOTE</td><td>1–N</td><td>Một bình luận nhận nhiều lượt đánh giá hữu ích</td></tr>
+      <tr><td>USER → REPORT</td><td>1–N (x2: reporter &amp; resolver)</td><td>Một user gửi nhiều report; một admin xử lý nhiều report</td></tr>
+      <tr><td>USER → NOTIFICATION / MESSAGE</td><td>1–N</td><td>Một user nhận nhiều thông báo / gửi nhiều tin nhắn</td></tr>
+    </tbody>
+  </table>
+  <p class="src">Xem sơ đồ code đầy đủ (mermaid) trong lịch sử làm việc nếu cần đối chiếu lại — bản Figma ở trên nên là bản chính thức để nộp bài.</p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <img src="assets/logo.png" alt="MomLove" class="footer-logo">
+  <p>MomLove — Đồ án BA Capstone · FDB2022 · VNU-IS</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
