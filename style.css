@@ -64,45 +64,137 @@ body {
   .nav-inner { flex-wrap: wrap; }
 }
 
-/* ---------- Hero ---------- */
-.hero { padding: 72px 24px 90px; }
-.hero-grid {
-  max-width: 1120px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;
+/* ---------- Hero Section (Tối ưu chèn text lên ảnh nền) ---------- */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 80px;
+  text-align: center;
+  color: #FFFFFF;
 }
-@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--forest-dark);
-  background: var(--tint); padding: 6px 14px; border-radius: 999px;
-  margin: 0 0 26px;
-}
-.badge {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 16px; height: 16px; border-radius: 50%;
-  background: var(--forest); color: #fff; font-size: 0.65rem;
-}
-h1 {
-  font-family: var(--serif); font-weight: 600; font-size: clamp(2.3rem, 5vw, 3.3rem);
-  line-height: 1.1; margin: 0 0 22px; letter-spacing: -0.01em;
-}
-h1 em { font-style: italic; color: var(--terracotta-dark); font-weight: 500; }
-.lede { font-size: 1.04rem; color: var(--ink-soft); margin: 0 0 34px; }
-.lede strong { color: var(--forest-dark); }
-.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn {
-  display: inline-block; padding: 13px 26px; border-radius: 999px;
-  font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: transform 0.15s ease;
-}
-.btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--forest-dark); color: #fff; }
-.btn-ghost { background: transparent; color: var(--forest-dark); border: 1.5px solid var(--forest-dark); }
 
-.hero-visual { display: flex; justify-content: center; }
-.hero-img {
-  width: 100%; max-width: 420px; border-radius: 24px;
-  background: var(--tint);
+/* Đặt ảnh nền và lớp phủ tối gradient */
+.hero.hero-overlay {
+  background: 
+    linear-gradient(180deg, rgba(35, 16, 12, 0.62) 0%, rgba(47, 69, 52, 0.78) 100%),
+    url('assets/head.png') center/cover no-repeat;
+}
+
+.hero-container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Pill badge viền kính mờ */
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F8F4E9;
+  margin-bottom: 20px;
+}
+
+.badge-icon {
+  font-size: 0.85rem;
+}
+
+/* Tiêu đề chính dạng Serif */
+.hero-brand-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(3.2rem, 7vw, 5.2rem);
+  font-weight: 500;
+  line-height: 1.05;
+  color: #FFFFFF;
+  margin: 0 0 10px;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.hero-heading {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #F8F4E9;
+  margin: 0 0 20px;
+  max-width: 780px;
+}
+
+.hero-overlay .lede {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(248, 244, 233, 0.9);
+  max-width: 680px;
+  margin: 0 0 34px;
+}
+
+/* Nút bấm bo tròn dạng Pill */
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-pill-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--terracotta);
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-pill-primary:hover {
+  background: var(--terracotta-dark);
+  transform: translateY(-2px);
+}
+
+.btn-pill-secondary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--forest-dark);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  transition: all 0.2s ease;
+}
+
+.btn-pill-secondary:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Hỗ trợ responsive cho màn hình di động */
+@media (max-width: 640px) {
+  .hero { padding: 80px 18px 60px; min-height: 75vh; }
+  .hero-cta { flex-direction: column; width: 100%; max-width: 300px; }
+  .btn-pill-primary, .btn-pill-secondary { width: 100%; text-align: center; }
 }
 
 /* ---------- Sections ---------- */
