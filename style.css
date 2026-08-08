@@ -27,68 +27,114 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- Nav ---------- */
+/* ---------- Nav (Bo góc nổi & Tự động ẩn khi cuộn) ---------- */
 #nav {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(248,244,233,0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1120px;
+  z-index: 100;
+  background: rgba(248, 244, 233, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 50px; /* Bo góc tròn menu */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
+
+/* Class ẩn menu khi cuộn xuống */
+#nav.nav-hidden {
+  transform: translate(-50%, -150%);
+  opacity: 0;
+  pointer-events: none;
+}
+
 .nav-inner {
-  max-width: 1120px; margin: 0 auto; padding: 12px 24px;
-  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 24px;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
 }
+
 .brand {
-  font-family: var(--serif); font-weight: 600; font-size: 1.25rem;
-  color: var(--forest-dark); text-decoration: none;
-  display: flex; align-items: center; gap: 8px;
+  font-family: var(--serif); 
+  font-weight: 600; 
+  font-size: 1.25rem;
+  color: var(--forest-dark); 
+  text-decoration: none;
+  display: flex; 
+  align-items: center; 
+  gap: 8px;
 }
+
 .brand-logo { width: 32px; height: 32px; object-fit: contain; border-radius: 50%; }
+
 #navLinks {
-  list-style: none; display: flex; gap: 18px; margin: 0; padding: 0;
+  list-style: none; 
+  display: flex; 
+  gap: 18px; 
+  margin: 0; 
+  padding: 0;
   flex-wrap: wrap;
 }
+
 #navLinks a {
-  color: var(--ink-soft); text-decoration: none; font-size: 0.82rem; font-weight: 500;
+  color: var(--ink-soft); 
+  text-decoration: none; 
+  font-size: 0.82rem; 
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
+
 #navLinks a:hover { color: var(--terracotta-dark); }
 .nav-toggle { display: none; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--ink); }
 
 @media (max-width: 900px) {
   .nav-toggle { display: block; }
   #navLinks {
-    display: none; flex-direction: column; width: 100%;
-    padding: 16px 0 4px; gap: 12px;
+    display: none; 
+    flex-direction: column; 
+    width: 100%;
+    padding: 16px 0 4px; 
+    gap: 12px;
   }
   #navLinks.open { display: flex; }
   .nav-inner { flex-wrap: wrap; }
 }
 
-/* ---------- Hero Section (Tối ưu chèn text lên ảnh nền) ---------- */
+/* ---------- Hero Section (Text lệch trái, Ảnh đậm dần sang phải) ---------- */
 .hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 100px 24px 80px;
-  text-align: center;
+  justify-content: flex-start; /* Căn toàn bộ khung về bên trái */
+  padding: 140px 8% 80px;
+  text-align: left; /* Text căn lề trái */
   color: #FFFFFF;
 }
 
-/* Đặt ảnh nền và lớp phủ tối gradient */
+/* Gradient chuyển màu: Bên trái vừa đủ tối để đọc chữ, BÊN PHẢI ĐẬM DẦN */
 .hero.hero-overlay {
   background: 
-    linear-gradient(180deg, rgba(35, 16, 12, 0.62) 0%, rgba(47, 69, 52, 0.78) 100%),
+    linear-gradient(
+      90deg, 
+      rgba(20, 28, 22, 0.78) 0%, 
+      rgba(20, 28, 22, 0.65) 45%, 
+      rgba(10, 15, 12, 0.95) 100%
+    ),
     url('assets/head.png') center/cover no-repeat;
 }
 
 .hero-container {
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: 680px; /* Bóp chiều rộng khối chữ để dồn hẳn sang bên trái */
+  margin: 0; /* Bỏ auto margin */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Căn trái các phần tử bên trong */
   position: relative;
   z-index: 2;
 }
@@ -99,10 +145,10 @@ body {
   align-items: center;
   gap: 8px;
   padding: 6px 18px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 999px;
   font-family: var(--mono);
   font-size: 0.75rem;
@@ -112,11 +158,9 @@ body {
   margin-bottom: 20px;
 }
 
-.badge-icon {
-  font-size: 0.85rem;
-}
+.badge-icon { font-size: 0.85rem; }
 
-/* Tiêu đề chính dạng Serif */
+/* Tiêu đề chính */
 .hero-brand-title {
   font-family: var(--serif);
   font-style: italic;
@@ -124,8 +168,8 @@ body {
   font-weight: 500;
   line-height: 1.05;
   color: #FFFFFF;
-  margin: 0 0 10px;
-  text-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  margin: 0 0 12px;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .hero-heading {
@@ -135,22 +179,20 @@ body {
   line-height: 1.25;
   color: #F8F4E9;
   margin: 0 0 20px;
-  max-width: 780px;
 }
 
 .hero-overlay .lede {
   font-size: 1.05rem;
   line-height: 1.65;
   color: rgba(248, 244, 233, 0.9);
-  max-width: 680px;
   margin: 0 0 34px;
 }
 
-/* Nút bấm bo tròn dạng Pill */
+/* Nút bấm bo tròn */
 .hero-cta {
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -175,7 +217,7 @@ body {
 .btn-pill-secondary {
   display: inline-block;
   padding: 14px 32px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.88);
   color: var(--forest-dark);
   border-radius: 999px;
   font-weight: 600;
@@ -190,14 +232,15 @@ body {
   transform: translateY(-2px);
 }
 
-/* Hỗ trợ responsive cho màn hình di động */
+/* Mobile Responsive */
 @media (max-width: 640px) {
-  .hero { padding: 80px 18px 60px; min-height: 75vh; }
-  .hero-cta { flex-direction: column; width: 100%; max-width: 300px; }
+  #nav { width: calc(100% - 20px); top: 10px; }
+  .hero { padding: 120px 20px 60px; min-height: 80vh; }
+  .hero-cta { flex-direction: column; width: 100%; }
   .btn-pill-primary, .btn-pill-secondary { width: 100%; text-align: center; }
 }
 
-/* ---------- Sections ---------- */
+/* ---------- Các Section khác giữ nguyên ---------- */
 .section { padding: 84px 24px; max-width: 1000px; margin: 0 auto; }
 .section.alt { background: var(--surface); max-width: none; padding-left: 0; padding-right: 0; }
 .section.alt > * { max-width: 1000px; margin-left: auto; margin-right: auto; }
