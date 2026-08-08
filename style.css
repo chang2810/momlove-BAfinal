@@ -326,6 +326,17 @@ p { color: var(--ink-soft); }
 .persona-grid ul { padding-left: 18px; font-size: 0.9rem; margin: 0; }
 .persona-body { flex: 1; }
 
+/* Styling cho ảnh đại diện thật của nhân vật */
+.avatar-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border: 2px solid var(--terracotta); /* Viền màu cam đất cùng tone */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 /* ---------- Placeholder / TODO ---------- */
 .todo-box {
   background: repeating-linear-gradient(135deg, var(--tint), var(--tint) 10px, #f3ecda 10px, #f3ecda 20px);
